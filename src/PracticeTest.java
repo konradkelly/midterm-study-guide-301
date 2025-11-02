@@ -82,7 +82,40 @@ public class PracticeTest {
         String actual = Practice.findLongestCWord(words);
         
         assertEquals("", actual);       
+    
     }
+    
+    @Test
+    void testInBetweenValidAndNonValidCases() {
+        String[] words = {"key", "house", "truck", "chimney", "lock", "fireplace", "TV"};
+        int actual = Practice.inBetweenNandM(words, 3, 8);
+        
+        assertEquals(4, actual); 
+    }
+
+    @Test
+    void testInBetweenWhenNEqualsM() {
+        String[] words = {"key", "house", "truck", "chimney", "lock", "fireplace", "TV"};
+        int actual = Practice.inBetweenNandM(words, 3, 3);
+        
+        assertEquals(0, actual); 
+    }    
+
+    @Test
+    void testInBetweenWhenAllTheSameWord() {
+        String[] words = {"chimney", "chimney", "chimney", "chimney", "chimney"};
+        int actual = Practice.inBetweenNandM(words, 3, 8);
+        
+        assertEquals(5, actual); 
+    }
+
+    @Test
+    void testInBetweenWhenOnlyOneWordPresent() {
+        String[] words = {"chimney"};
+        int actual = Practice.inBetweenNandM(words, 3, 8);
+        
+        assertEquals(1, actual); 
+    }                 
 }        
 
 
