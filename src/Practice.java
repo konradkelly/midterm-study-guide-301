@@ -39,6 +39,19 @@ public class Practice {
             }
                 return longest;
         }
+            
+        public static int inBetweenNandM(String[] words, int n, int m) {
+                if (words.length == 0) {
+                    return 0;
+                }
+                int count = 0;
+                for (String word : words) {
+                    if (n < word.length() && word.length() < m) {
+                        count++;
+                }
+            }
+                return count;
+            }
     }   
     // TODO: Implement the other methods from the study guide AND tests for each one
 
