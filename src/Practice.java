@@ -23,7 +23,23 @@ public class Practice {
 
             return max - min;
         }     
-    }  
+    
+    
+        public static String findLongestCWord(String[] words) {
+            if (words.length == 0) {
+                return "";
+            }
+            String longest = "";
+            for (String word : words) {
+                if (!word.isEmpty() && Character.toLowerCase(word.charAt(0)) == 'c') {
+                    if (word.length() > longest.length()) {
+                        longest = word;
+                    }
+                }
+            }
+                return longest;
+        }
+    }   
     // TODO: Implement the other methods from the study guide AND tests for each one
 
     // For each method you are only required to implement it for one of the data
