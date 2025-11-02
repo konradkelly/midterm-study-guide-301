@@ -51,8 +51,23 @@ public class Practice {
                 }
             }
                 return count;
+        }
+    
+    
+        public static int evenOddDiff(int[] arr) {
+            int evenCount = 0;
+            int oddCount = 0;
+
+            for (int i = 0; i < arr.length; i++) {
+                if (arr[i] % 2 == 0) {
+                    evenCount++;
+                } else if (arr[i] % 2 != 0) {
+                    oddCount++;
+                    }
+                }
+                return evenCount - oddCount;
             }
-    }   
+        }            
     // TODO: Implement the other methods from the study guide AND tests for each one
 
     // For each method you are only required to implement it for one of the data
