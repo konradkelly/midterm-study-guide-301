@@ -84,7 +84,7 @@ public class PracticeTest {
         assertEquals("", actual);       
     
     }
-    
+
     @Test
     void testInBetweenValidAndNonValidCases() {
         String[] words = {"key", "house", "truck", "chimney", "lock", "fireplace", "TV"};
@@ -115,7 +115,39 @@ public class PracticeTest {
         int actual = Practice.inBetweenNandM(words, 3, 8);
         
         assertEquals(1, actual); 
-    }                 
+    }
+
+    @Test
+    void testEvenOddDiffWhenEqualAmountOfOddsAndEvens() {
+        int[] arr = {1, 2, 3, 4, 5, 6, 7, 8};
+        int actual = Practice.evenOddDiff(arr);
+        
+        assertEquals(0, actual);
+    }         
+
+    @Test
+    void testEvenOddDiffWhenMoreEvensThanOdds() {
+        int[] arr = {1, 2, 3, 4, 5, 6, 8};
+        int actual = Practice.evenOddDiff(arr);
+        
+        assertEquals(1, actual);
+    }
+
+    @Test
+    void testEvenOddDiffWhenMoreOddsThanEvens() {
+        int[] arr = {1, 2, 3, 4, 5, 6, 7};
+        int actual = Practice.evenOddDiff(arr);
+        
+        assertEquals(-1, actual);
+    }
+
+    @Test
+    void testEvenOddDiffWhenZero() {
+        int[] arr = {0};
+        int actual = Practice.evenOddDiff(arr);
+        
+        assertEquals(1, actual);
+    }    
 }        
 
 
