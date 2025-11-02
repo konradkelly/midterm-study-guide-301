@@ -37,8 +37,54 @@ public class PracticeTest {
         int[] numbers = {8, 8, 8, 8};
         int actual = Practice.maxDiff(numbers);
         assertEquals(0, actual);
-    }    
-}
+    }
+
+    @Test
+    void testFindLongestCWordWhenAllCs() {
+        String[] words = {"cat", "capybara", "caribou", "cicada"};
+
+        String actual = Practice.findLongestCWord(words);
+        
+        assertEquals("capybara", actual);
+        }
+
+    @Test
+    void testFindLongestCWordWhenUpperAndLowerCase() {
+        String[] words = {"cat", "Capybara", "caribou", "Cicada"};
+
+        String actual = Practice.findLongestCWord(words);
+        
+        assertEquals("Capybara", actual);
+        }        
+
+    @Test
+    void testFindLongestCWordWhenNoCs() {
+        String[] words = {"dog", "zebra", "leopard", "dolphin", "donkey", "octopus", "whale"};
+
+        String actual = Practice.findLongestCWord(words);
+        
+        assertEquals("", actual);
+        }
+
+    @Test
+    void testFindLongestCWordWhenMixOfLetters() {
+        String[] words = {"cat", "dog", "capybara", "caribou", "cicada", "donkey", "crocodile", "ocrocodile"};
+
+        String actual = Practice.findLongestCWord(words);
+        
+        assertEquals("crocodile", actual);
+        }        
+
+    @Test
+    void testfindLongestCWordWhenStringIsEmpty() {
+        String[] words = {""};
+
+        String actual = Practice.findLongestCWord(words);
+        
+        assertEquals("", actual);       
+    }
+}        
+
 
 
 
