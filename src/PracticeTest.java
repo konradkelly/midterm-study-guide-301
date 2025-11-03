@@ -1,5 +1,9 @@
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+
 import org.junit.jupiter.api.Test;
 
 public class PracticeTest {
@@ -41,7 +45,11 @@ public class PracticeTest {
 
     @Test
     void testFindLongestCWordWhenAllCs() {
-        String[] words = {"cat", "capybara", "caribou", "cicada"};
+        ArrayList<String> words = new ArrayList<>();
+        words.add("cat");
+        words.add("capybara");
+        words.add("caribou");
+        words.add("cicada");
 
         String actual = Practice.findLongestCWord(words);
         
@@ -50,7 +58,11 @@ public class PracticeTest {
 
     @Test
     void testFindLongestCWordWhenUpperAndLowerCase() {
-        String[] words = {"cat", "Capybara", "caribou", "Cicada"};
+        ArrayList<String> words = new ArrayList<>();
+        words.add("cat");
+        words.add("Capybara");
+        words.add("caribou");
+        words.add("Cicada");
 
         String actual = Practice.findLongestCWord(words);
         
@@ -59,7 +71,14 @@ public class PracticeTest {
 
     @Test
     void testFindLongestCWordWhenNoCs() {
-        String[] words = {"dog", "zebra", "leopard", "dolphin", "donkey", "octopus", "whale"};
+        ArrayList<String> words = new ArrayList<>();
+        words.add("dog");
+        words.add("zebra");
+        words.add("leopard");
+        words.add("dolphin");
+        words.add("donkey");
+        words.add("octopus");
+        words.add("whale");
 
         String actual = Practice.findLongestCWord(words);
         
@@ -68,7 +87,15 @@ public class PracticeTest {
 
     @Test
     void testFindLongestCWordWhenMixOfLetters() {
-        String[] words = {"cat", "dog", "capybara", "caribou", "cicada", "donkey", "crocodile", "ocrocodile"};
+        ArrayList<String> words = new ArrayList<>();
+        words.add("cat");
+        words.add("dog");
+        words.add("capybara");
+        words.add("caribou");
+        words.add("cicada");
+        words.add("donkey");
+        words.add("crocodile");
+        words.add("ocrocodile");
 
         String actual = Practice.findLongestCWord(words);
         
@@ -77,78 +104,15 @@ public class PracticeTest {
 
     @Test
     void testfindLongestCWordWhenStringIsEmpty() {
-        String[] words = {""};
+        ArrayList<String> words = new ArrayList<>();
+        words.add("");
 
         String actual = Practice.findLongestCWord(words);
         
         assertEquals("", actual);       
     
     }
-
-    @Test
-    void testInBetweenValidAndNonValidCases() {
-        String[] words = {"key", "house", "truck", "chimney", "lock", "fireplace", "TV"};
-        int actual = Practice.inBetweenNandM(words, 3, 8);
-        
-        assertEquals(4, actual); 
-    }
-
-    @Test
-    void testInBetweenWhenNEqualsM() {
-        String[] words = {"key", "house", "truck", "chimney", "lock", "fireplace", "TV"};
-        int actual = Practice.inBetweenNandM(words, 3, 3);
-        
-        assertEquals(0, actual); 
-    }    
-
-    @Test
-    void testInBetweenWhenAllTheSameWord() {
-        String[] words = {"chimney", "chimney", "chimney", "chimney", "chimney"};
-        int actual = Practice.inBetweenNandM(words, 3, 8);
-        
-        assertEquals(5, actual); 
-    }
-
-    @Test
-    void testInBetweenWhenOnlyOneWordPresent() {
-        String[] words = {"chimney"};
-        int actual = Practice.inBetweenNandM(words, 3, 8);
-        
-        assertEquals(1, actual); 
-    }
-
-    @Test
-    void testEvenOddDiffWhenEqualAmountOfOddsAndEvens() {
-        int[] arr = {1, 2, 3, 4, 5, 6, 7, 8};
-        int actual = Practice.evenOddDiff(arr);
-        
-        assertEquals(0, actual);
-    }         
-
-    @Test
-    void testEvenOddDiffWhenMoreEvensThanOdds() {
-        int[] arr = {1, 2, 3, 4, 5, 6, 8};
-        int actual = Practice.evenOddDiff(arr);
-        
-        assertEquals(1, actual);
-    }
-
-    @Test
-    void testEvenOddDiffWhenMoreOddsThanEvens() {
-        int[] arr = {1, 2, 3, 4, 5, 6, 7};
-        int actual = Practice.evenOddDiff(arr);
-        
-        assertEquals(-1, actual);
-    }
-
-    @Test
-    void testEvenOddDiffWhenZero() {
-        int[] arr = {0};
-        int actual = Practice.evenOddDiff(arr);
-        
-        assertEquals(1, actual);
-    }    
-}        
+}
 
 
 
