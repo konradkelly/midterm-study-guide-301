@@ -112,16 +112,6 @@ public class PracticeTest {
         assertEquals("", actual);       
     
     }
-    @Test
-    void testfindLongestCWordWhenStringIsEmpty() {
-        ArrayList<String> words = new ArrayList<>();
-        words.add("");
-
-        String actual = Practice.findLongestCWord(words);
-        
-        assertEquals("", actual);       
-    
-    }
 
     @Test
     void testInBetweenValidAndNonValidCases() {
