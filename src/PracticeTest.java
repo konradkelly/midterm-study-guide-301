@@ -112,8 +112,166 @@ public class PracticeTest {
         assertEquals("", actual);       
     
     }
+    @Test
+    void testfindLongestCWordWhenStringIsEmpty() {
+        ArrayList<String> words = new ArrayList<>();
+        words.add("");
+
+        String actual = Practice.findLongestCWord(words);
+        
+        assertEquals("", actual);       
+    
+    }
+
+    @Test
+    void testInBetweenValidAndNonValidCases() {
+        HashSet<String> words = new HashSet<>();
+        words.add("key");
+        words.add("house");
+        words.add("truck");
+        words.add("chimney");
+        words.add("lock");
+        words.add("fireplace");
+        words.add("TV");
+        int actual = Practice.inBetweenNandM(words, 3, 8);
+        
+        assertEquals(4, actual); 
+    }
+
+    @Test
+    void testInBetweenWhenNEqualsM() {
+        HashSet<String> words = new HashSet<>();
+        words.add("key");
+        words.add("house");
+        words.add("truck");
+        words.add("chimney");
+        words.add("lock");
+        words.add("fireplace");
+        words.add("TV");
+        int actual = Practice.inBetweenNandM(words, 3, 3);
+        
+        assertEquals(0, actual); 
+    }    
+
+    @Test
+    void testInBetweenWhenAllTheSameWord() {
+        HashSet<String> words = new HashSet<>();
+        words.add("chimney");
+        words.add("chimney");
+        words.add("chimney");
+        words.add("chimney");
+        words.add("chimney");
+        int actual = Practice.inBetweenNandM(words, 3, 8);
+        
+        assertEquals(1, actual); // Changed from 5 to 1!
+    }
+
+    @Test
+    void testInBetweenWhenOnlyOneWordPresent() {
+        HashSet<String> words = new HashSet<>();
+        words.add("chimney");
+        int actual = Practice.inBetweenNandM(words, 3, 8);
+        
+        assertEquals(1, actual); 
+    }
+
+    @Test
+    void testEvenOddDiffWhenEqualAmountOfOddsAndEvens() {
+        HashMap<Integer, Integer> map = new HashMap<>();
+        map.put(1, 0);
+        map.put(2, 1);
+        map.put(3, 2);
+        map.put(4, 3);
+        map.put(5, 4);
+        map.put(6, 5);
+        map.put(7, 6);
+        map.put(8, 7);
+        int actual = Practice.evenOddDiff(map);
+        
+        assertEquals(0, actual);
+    }         
+
+    @Test
+    void testEvenOddDiffWhenMoreEvensThanOdds() {
+        HashMap<Integer, Integer> map = new HashMap<>();
+        map.put(1, 0);
+        map.put(2, 1);
+        map.put(3, 2);
+        map.put(4, 3);
+        map.put(5, 4);
+        map.put(6, 5);
+        map.put(8, 6);
+        int actual = Practice.evenOddDiff(map);
+        
+        assertEquals(1, actual);
+    }
+
+    @Test
+    void testEvenOddDiffWhenMoreOddsThanEvens() {
+        HashMap<Integer, Integer> map = new HashMap<>();
+        map.put(1, 0);
+        map.put(2, 1);
+        map.put(3, 2);
+        map.put(4, 3);
+        map.put(5, 4);
+        map.put(6, 5);
+        map.put(7, 6);
+        int actual = Practice.evenOddDiff(map);
+        
+        assertEquals(-1, actual);
+    }
+
+    @Test
+    void testEvenOddDiffWhenZero() {
+        HashMap<Integer, Integer> map = new HashMap<>();
+        map.put(0, 0);
+        int actual = Practice.evenOddDiff(map);
+        
+        assertEquals(1, actual);
+    }
+    
+@Test
+void testFindSecondLargestWhenDifferenceIsOne() {
+    HashMap<Integer, Integer> map = new HashMap<>();
+    map.put(0, 2);
+    map.put(1, 50);
+    map.put(2, 98);
+    map.put(3, 99);
+    int actual = Practice.findSecondLargest(map);
+    
+    assertEquals(98, actual);
 }
 
+@Test
+void testFindSecondLargestWhenPositiveAndNegativeNumbers() {
+    HashMap<Integer, Integer> map = new HashMap<>();
+    map.put(0, -1000);
+    map.put(1, 1000);
+    int actual = Practice.findSecondLargest(map);
+    
+    assertEquals(-1000, actual);
+}
+
+@Test
+void testFindSecondLargestWhenSameNumber() {
+    HashMap<Integer, Integer> map = new HashMap<>();
+    map.put(0, 1);
+    map.put(1, 1);
+    int actual = Practice.findSecondLargest(map);
+    
+    assertEquals(-2147483648, actual);
+}
+
+@Test
+void testFindSecondLargestWhenMaxAndMinIntegerValues() {
+    HashMap<Integer, Integer> map = new HashMap<>();
+    map.put(0, Integer.MIN_VALUE);
+    map.put(1, Integer.MAX_VALUE);
+    int actual = Practice.findSecondLargest(map);
+    
+    assertEquals(-2147483648, actual);
+    }     
+}
 
 
 
