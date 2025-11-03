@@ -42,7 +42,7 @@ public class Practice {
                 }
             }
             return longest;
-        }
+        }        
             
         public static int inBetweenNandM(HashSet<String> words, int n, int m) {
                 if (words.isEmpty()) {
@@ -55,7 +55,40 @@ public class Practice {
                 }
             }
                 return count;
-        }                
+        }
+    
+    
+        public static int evenOddDiff(HashMap<Integer, Integer> map) {
+            int evenCount = 0;
+            int oddCount = 0;
+
+            for (Integer key : map.keySet()) {
+                if (key % 2 == 0) {
+                    evenCount++;
+                } else if (key % 2 != 0) {
+                    oddCount++;
+                }
+            }
+            return evenCount - oddCount;
+        }
+
+        public static int findSecondLargest(HashMap<Integer, Integer> map) {
+            if (map.isEmpty()) {
+                return 0;
+            }
+            int largest = Integer.MIN_VALUE;
+            int secondLargest = Integer.MIN_VALUE;
+
+            for (Integer value : map.values()) {
+                if (value > largest) {
+                    secondLargest = largest;
+                    largest = value;
+                } else if (value > secondLargest && value < largest) {
+                    secondLargest = value;
+                }
+            }
+            return secondLargest; 
+        }                        
     }
     // For each method you are only required to implement it for one of the data
     // structures. But use a different data structure for each method. For example,
